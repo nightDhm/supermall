@@ -24,6 +24,12 @@ export function request(config){
         console.log(err);   //请求失败后干什么
     })
 
+    //拦截
+    // instance.interceptors.request.use(res => {
+    //     return res.data     //响应成功后 处理后 返回处理后的结果res
+    // },err => {
+    //     console.log(err);   //响应失败后
+    // })
     
     return instance(config)
 
