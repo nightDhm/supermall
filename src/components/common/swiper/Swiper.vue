@@ -58,7 +58,6 @@ export default {
       this.swiperStyle = swiperEl.style;
       this.slideCount = slides.length;
       this.slideWidth = swiperEl.offsetWidth;
-
       if (this.slideCount > 1) {
         let firstSlide = slides[0].cloneNode(true);
         let lastSlide = slides[this.slideCount - 1].cloneNode(true);
@@ -68,7 +67,6 @@ export default {
         this.setTransform(-this.slideWidth);
       }
     },
-
     // 2. 自动滚动
     moveAuto() {
       this.moveTimer = setInterval(() => {
@@ -77,13 +75,11 @@ export default {
         this.scrollCheck();
       }, 1000);
     },
-
     // 3. 滚动检测（检测是第一张还是最后一张，让其回滚到正确的位置）
     scrollCheck() {
       // 开启过渡动画并开始滚动
       this.swiperStyle.transition = "transform " + this.animDuration + "ms";
       this.setTransform(-this.currIndex * this.slideWidth);
-
       //设置一个定时器，等过渡动画结束后执行(判断所处位置是第几张)
       setTimeout(() => {
         this.swiperStyle.transition = "0ms";
@@ -97,12 +93,10 @@ export default {
         }
       }, this.animDuration);
     },
-
     //设置swiper的transform的滚动距离
     setTransform(pos) {
       this.swiperStyle.transform = `translateX(${pos}px)`;
     },
-
     //重置子弹的active
     setBulletActive(index) {
       if (this.currIndex >= this.slideCount + 1) {
@@ -116,7 +110,6 @@ export default {
         return { active: index == this.currIndex - 1 };
       }
     },
-
     /*
     触屏事件
     */
@@ -137,7 +130,6 @@ export default {
     touchEnd(e) {
       if (this.slideCount > 1) {
         let _Dis = Math.abs(this.distance); //绝对值求出移动的距离
-
         if (this.distance == 0) {
           return;
         } else if (
@@ -165,11 +157,9 @@ export default {
   overflow: hidden;
   position: relative;
 }
-
 .swiper {
   display: flex;
 }
-
 .bullet {
   display: flex;
   position: absolute;
