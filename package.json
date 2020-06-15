@@ -11,10 +11,7 @@
     "axios": "^0.19.2",
     "core-js": "^3.6.5",
     "vue": "^2.6.11",
-<<<<<<< HEAD
     "vue-awesome-swiper": "^4.1.1",
-=======
->>>>>>> 940105825559159255a30cd8afd85f8ad0426193
     "vue-router": "^3.3.2"
   },
   "devDependencies": {

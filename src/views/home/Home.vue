@@ -39,20 +39,14 @@ created(){
     //this.result = res;    //res数据存入到result
     this.banners = res.data.data.banner.list;
     this.components = res.data.data.recommend.list;
-    
-    
   })
 }
 }
 </script>
 
 <style>
-<<<<<<< HEAD
   .home-nav{
     background-color: var(--color-tint);
     color: white;
   }
-=======
-
->>>>>>> 940105825559159255a30cd8afd85f8ad0426193
 </style>
