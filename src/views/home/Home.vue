@@ -1,5 +1,4 @@
 <template>
-<<<<<<< HEAD
   <div id="home">
     <NavBar class="home-nav"><div slot="center">购物街</div></NavBar>
    <swiper>
@@ -44,14 +43,6 @@ created(){
     
   })
 }
-=======
-  <h2>首页</h2>
-</template>
-
-<script>
-export default {
-name:"Home"
->>>>>>> 940105825559159255a30cd8afd85f8ad0426193
 }
 </script>
 
