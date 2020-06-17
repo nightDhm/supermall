@@ -37,5 +37,7 @@ components:{
 </script>
 
 <style>
-
+#tab-bar{
+  z-index: 10;
+}
 </style>

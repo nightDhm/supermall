@@ -4,7 +4,8 @@
     <home-swiper :banners="banners"/>
     <recommend-view :recommends="recommends"/>
     <feature-view/>
-    <tab-control class="tab-control" :titles="['流行','精选','新款']"/>
+    <tab-control class="tab-control" :titles="['流行','精选','新款']" @tabClick="tabClick"/>
+    <good-list :goods="showGoods"/>
   </div>
 </template>
 
@@ -15,8 +16,9 @@ import FeatureView from './childComps/FeatureView'
 
 import NavBar from 'components/common/navbar/NavBar';
 import TabControl from 'components/content/tabControl/TabControl'
+import GoodList from 'components/content/goods/GoodsList'
 
-import {getHomeMultidata} from "network/home";
+import {getHomeMultidata,getHomeGoods} from "network/home";
 
 export default {
 name:"Home",
@@ -25,31 +27,80 @@ components:{
   HomeSwiper,
   RecommendView,
   FeatureView,
-  TabControl
+  TabControl,
+  GoodList
+  
 },
 data(){
   return{
     banners:[],
-    recommends:[]
+    recommends:[],
+    goods:{
+      'pop':{page:0,list:[]},
+      'new':{page:0,list:[]},
+      'sell':{page:0,list:[]},
+    },
+    currentType:'pop',
+  }
+},
+computed:{
+  showGoods(){
+    return this.goods[this.currentType].list
   }
 },
 created(){
   //请求多个数据
-  getHomeMultidata().then(res => {
-    console.log(res);
+  this.getHomeMultidata()
+
+  //请求商品数据
+  this.getHomeGoods('pop')
+  this.getHomeGoods('new')
+  this.getHomeGoods('sell')
+},
+ methods:{
+/**
+ * 事件监听相关的方法
+ */
+  tabClick(index){
+    switch(index){
+      case 0:
+        this.currentType = 'pop'
+        break
+      case 1:
+        this.currentType = 'new'
+        break
+      case 2:
+        this.currentType -'sell'
+        break
+    }
+  },
+
+/**
+ * 网络请求相关的方法
+ */
+   getHomeMultidata(){
+     getHomeMultidata().then(res => {
     //this.result = res;    //res数据存入到result
     this.banners = res.data.data.banner.list;
     this.recommends = res.data.data.recommend.list;
-    
+    })
+   },
+   getHomeGoods(type){
+    const page = this.goods[type].page + 1
+    getHomeGoods('type',page).then(res =>{
+    this.goods[type].list.push(...res.data.data.list)
+    this.goods[type].page += 1
   })
-}
+   }
+
+ }
 }
 </script>
 
 <style>
   #home{
     padding-top: 44px;
-    padding-bottom: 900px;
+
   }
 
   .home-nav{
@@ -66,7 +117,7 @@ created(){
 .tab-control {
     position: sticky;
     top: 44px;
-
+    z-index: 9;
   }
 
 </style>
