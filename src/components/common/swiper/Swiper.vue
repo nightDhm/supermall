@@ -85,7 +85,7 @@
       checkPosition: function () {
         window.setTimeout(() => {
           // 1.校验正确的位置
-          this.swiperStyle.transition = '5000ms';
+          this.swiperStyle.transition = '1000ms';
           if (this.currentIndex >= this.slideCount + 1) {
             this.currentIndex = 1;
             this.setTransform(-this.currentIndex * this.totalWidth);

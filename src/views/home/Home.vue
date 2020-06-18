@@ -87,10 +87,12 @@ created(){
    },
    getHomeGoods(type){
     const page = this.goods[type].page + 1
-    getHomeGoods('type',page).then(res =>{
-    this.goods[type].list.push(...res.data.data.list)
-    this.goods[type].page += 1
-  })
+      getHomeGoods(type,page).then(res =>{
+        console.log(res);
+        
+      this.goods[type].list.push(...res.data.data.list)
+      this.goods[type].page += 1
+    })
    }
 
  }
@@ -111,7 +113,7 @@ created(){
     left: 0;
     right: 0;
     top: 0;
-    z-index: 9;
+    z-index: 1;
   }
 
 .tab-control {

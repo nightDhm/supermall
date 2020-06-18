@@ -1,9 +1,6 @@
 <template>
   <div class="goods">
-      <goods-list-item v-for="(item,index) in goods" :key="index"/>
-      {{goods}}
-
-
+      <goods-list-item v-for="(item,index) in goods" :key="index" :goods-item="item"/>
   </div>
 </template>
 
@@ -17,7 +14,7 @@ components:{
 },
 props:{
     goods:{
-        type:Array,
+        type:Object,
         default(){
             return[]
         }
