@@ -14,7 +14,7 @@ components:{
 },
 props:{
     goods:{
-        type:Object,
+        type:Array,
         default(){
             return[]
         }

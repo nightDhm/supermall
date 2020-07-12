@@ -109,12 +109,12 @@ mounted(){
     this.$refs.tabControl2.currentIndex = index
   },
   backClick(){
-    //让ref的scroll使用scrollTo事件
+    //让ref的scroll使用scrollTo事件 
     this.$refs.scroll.scrollTo(0,0)
   },
   contentscoll(position){
-    //接收监听滚动的位置position事件
-    this.isShowBackTop = (-position.y) > 1000
+    //接收监听滚动的位置position事件 
+    this.isShowBackTop = (- position.y) > 1000;
 
     //2.决定tavControl是否吸顶(position:fixd)
 
@@ -178,6 +178,7 @@ mounted(){
     height: calc(100% - 93px);
     overflow: hidden;
     /* margin-top: 44px; */
+
   }
 
 .tab-control{
