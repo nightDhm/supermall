@@ -1,6 +1,10 @@
 <template>
   <div id="app">
-    <router-view/>
+    <keep-alive exclude="Detail">
+      <router-view/>
+      <!--</keep-alive>不让home随便销毁  -->
+      <!-- exclude排除，就exclude重新获取 -->
+    </keep-alive>
     <main-tab-bar/>
   </div>
 </template>
