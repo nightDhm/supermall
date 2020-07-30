@@ -5,12 +5,12 @@
         <img slot="item-iocn-active" src="~assets/img/tabbar/shouye.png">
         <div slot="item-text">首页</div>
       </tab-bar-item>
-      <tab-bar-item path="/cart" activeColor="salmon">
+      <tab-bar-item path="/category" activeColor="salmon">
         <img slot="item-iocn" src="~assets/img/tabbar/fenlei.png">
         <img slot="item-iocn-active" src="~assets/img/tabbar/shouye.png">
         <div slot="item-text">分类</div>
       </tab-bar-item>
-      <tab-bar-item path="/category" activeColor="salmon">
+      <tab-bar-item path="/cart" activeColor="salmon">
         <img slot="item-iocn" src="~assets/img/tabbar/sousuo.png">
         <img slot="item-iocn-active" src="~assets/img/tabbar/shouye.png">
         <div slot="item-text">购物车</div>

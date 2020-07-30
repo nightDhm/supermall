@@ -32,6 +32,12 @@ export class Shop {
     }
 }
 
+export function getRecommend(){
+    return request({
+        url: '/recommend'
+    })
+}
+
 export class GoodsParam{
     constructor(info, rule) {
         //注：image可能没有值（某些商品有值，某些商品没有值）
